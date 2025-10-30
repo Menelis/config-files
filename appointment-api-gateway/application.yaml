@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: auth_service
+              predicates:
+                - Path= /api/v1/account/**
+              url: appointment-api-gateway.appointment-system-dev.svc.cluster.local::8080
