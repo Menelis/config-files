@@ -3,6 +3,9 @@ infrastructure:
 spring:
   application:
     name: notification-service
+  cloud:
+    config:
+      enabled: false
   kafka:
     bootstrap-servers:
       - localhost:9092
@@ -40,7 +43,16 @@ spring:
 app:
   kafka:
     consumer:
-      notification-topic: appointment-system-notifications
+      topic:
+        name: ${infrastructure.env}-appointment-notifications
+        topic-header-filter:
+          header-key: eventType
+          header-values:
+            - verifyEmail
+            - bookingConfirmed
+            - bookingPendingConfirmed
+            - bookingCancelled
+
   encryption-key: "AHaeXmeTddI9EsmAOiK2l8diUFH5htXacTEP4wa5zBs="
   mail:
     from-address: ${spring.mail.username}
