@@ -7,9 +7,6 @@ infrastructure:
 spring:
   application:
     name: auth-server
-  cloud:
-    config:
-      enabled: false
   datasource:
     url: jdbc:postgresql://localhost:5432/appointment_auth_service_dev
     username: ${infrastructure.DB.USERNAME}
