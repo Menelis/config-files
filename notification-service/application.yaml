@@ -3,18 +3,18 @@ infrastructure:
 spring:
   kafka:
     bootstrap-servers:
-      - localhost:29092
-      - localhost:29093
-      - localhost:29094
-      - localhost:29095
-      - localhost:29096
-      - localhost:29097
-#      - localhost:9092
-#      - localhost:9093
-#      - localhost:9094
-#      - localhost:9095
-#      - localhost:9096
-#      - localhost:9097
+#      - localhost:29092
+#      - localhost:29093
+#      - localhost:29094
+#      - localhost:29095
+#      - localhost:29096
+#      - localhost:29097
+      - 127.0.0.1:9092
+      - 127.0.0.1:9093
+      - 127.0.0.1:9094
+      - 127.0.0.1:9095
+      - 127.0.0.1:9096
+      - 127.0.0.1:9097
     consumer:
       enable-auto-commit: false
       isolation-level: read_committed
