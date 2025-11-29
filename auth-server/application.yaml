@@ -15,7 +15,7 @@ spring:
     schemas: public
     baseline-version: 2.0.0 # The increment is based on existing tables
     baseline-description: Base Migration
-    enabled: false
+    enabled: true
     baseline-on-migrate: true
     ignore-migration-patterns:
       - "*:missing"
