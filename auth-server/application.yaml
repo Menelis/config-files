@@ -115,13 +115,13 @@ server:
   error:
     whitelabel:
       enabled: true
-grpc:
-  server:
-    port: 9090
-
-
-logging:
-  level:
-    root: trace
-    #org.springframework.security.oauth2.server.authorization.oidc.web: trace
-    #org.springframework.security.web: trace
+#grpc:
+#  server:
+#    port: 9090
+#
+#
+#logging:
+#  level:
+#    root: trace
+#    #org.springframework.security.oauth2.server.authorization.oidc.web: trace
+#    #org.springframework.security.web: trace
