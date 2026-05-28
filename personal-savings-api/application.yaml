@@ -1,0 +1,104 @@
+infrastructure:
+  environment: DEV
+spring:
+  application:
+    name: personal-savings-api
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  cache:
+    type: none #redis
+    redis:
+      time-to-live: 60m
+      enable-statistics: true
+      cache-null-values: false
+      use-key-prefix: false
+  datasource:
+    url: jdbc:sqlserver://localhost;encrypt=true;trustServerCertificate=true;databaseName=personal_savings_seed_data_test
+    username: personal_saving_api_user
+    password: personal_saving_api_user
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: "menelis.m@gmail.com"
+    password: "oyij czjn tnjt pfvl"
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      mail.debug: true
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    doc-expansion: none
+
+
+app:
+  jwt:
+    secret: "8adLFE4RHIqYOXhB7ZLjgqdRJWAioTMzlblC8XyKrc8="
+    expiration-ms: 7200000 # 2 hours
+  cors:
+    allowed-methods:
+      - "*"
+    allowed-headers:
+      - "*"
+    allowed-origins:
+      - http://localhost:4200
+  open-api:
+    title: Personal Savings Api ${infrastructure.environment}
+    description: Personal Savings Api for front end
+    version: 1.0
+    contact-info:
+      name: Menelisi Mthembu
+      email: menelis@email.com
+      url: https://www.menelis.co.za
+    license-info:
+      name: License for API
+      url: https://www.mta.com
+  white-list:
+    - "/api-docs/**"
+    - "/swagger-ui/**"
+    - "/error"
+    - "/api/auth/*"
+  mail:
+    from: ${spring.mail.username}
+    subject: Email Verification
+    expiration-in-ms: 86400000 # 24 hours
+  client:
+    url: http://localhost:4200
+    email-confirm-url: ${app.client-url}/account/confirmPassword
+    forgot-password-url: ${app.client.url}/account/forgotPassword
+  admin-routes:
+    - "/api/transaction-type/admin/**"
+    - "/api/account-type/admin/**"
+    - "/api/running-year/admin/**"
+    - "/api/account/admin/**"
+  # Seed the app with admin users.If not supplied(first-name,last-name) they will be defaulted to admin
+  admins:
+    -
+      email: "admin@personalsavings.co.za"
+    -
+      email: "admin2@personalsavings.co.za"
+
+server:
+  port: 8082
+
+logging:
+  level:
+    org.hibernate.orm.jdbc.bind: TRACE
+    com.personal.savings: trace
