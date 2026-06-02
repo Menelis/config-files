@@ -59,6 +59,7 @@ app:
       - "*"
     allowed-origins:
       - http://localhost:4200
+      - http://localhost:655
   open-api:
     title: Personal Savings Api ${infrastructure.environment}
     description: Personal Savings Api for front end
