@@ -29,6 +29,7 @@ spring:
       hibernate:
         connection:
           url: ${spring.datasource.url}
+          pool_size: 10
         format_sql: false
     open-in-view: false
   mail:
