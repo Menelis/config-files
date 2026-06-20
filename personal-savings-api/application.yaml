@@ -1,5 +1,5 @@
 infrastructure:
-  environment: DEV
+  environment: PROD
 spring:
   application:
     name: personal-savings-api
@@ -15,9 +15,9 @@ spring:
       cache-null-values: false
       use-key-prefix: false
   datasource:
-    url: jdbc:sqlserver://localhost;encrypt=true;trustServerCertificate=true;databaseName=personal_savings_seed_data_test
-    username: personal_saving_api_user
-    password: personal_saving_api_user
+    url: jdbc:sqlserver://localhost;encrypt=true;trustServerCertificate=true;databaseName=personal_savings_prd
+    username: personal_savings_api_prd
+    password: personal_savings_api_prd
   jpa:
     hibernate:
       ddl-auto: none
@@ -58,8 +58,7 @@ app:
     allowed-headers:
       - "*"
     allowed-origins:
-      - http://localhost:4200
-      - http://localhost:655
+      - http://localhost:657
   open-api:
     title: Personal Savings Api ${infrastructure.environment}
     description: Personal Savings Api for front end
@@ -81,7 +80,7 @@ app:
     subject: Email Verification
     expiration-in-ms: 86400000 # 24 hours
   client:
-    url: http://localhost:4200
+    url: http://localhost:657
     email-confirm-url: ${app.client-url}/account/confirmPassword
     forgot-password-url: ${app.client.url}/account/forgotPassword
   admin-routes:
@@ -95,8 +94,3 @@ app:
       email: "admin@personalsavings.co.za"
     -
       email: "admin2@personalsavings.co.za"
-
-logging:
-  level:
-    org.hibernate.orm.jdbc.bind: TRACE
-    com.personal.savings: trace
