@@ -27,6 +27,8 @@ spring:
     show-sql: false
     properties:
       hibernate:
+        connection:
+          url: ${spring.datasource.url}
         format_sql: false
     open-in-view: false
   mail:
