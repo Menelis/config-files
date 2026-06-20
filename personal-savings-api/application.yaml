@@ -50,7 +50,7 @@ springdoc:
 
 app:
   jwt:
-    secret: "8adLFE4RHIqYOXhB7ZLjgqdRJWAioTMzlblC8XyKrc8="
+    secret: "U0ZDuF5Gn6WF5aapuNXgkKQcjKFA5eHEbOMKxQnOayI="
     expiration-ms: 7200000 # 2 hours
   cors:
     allowed-methods:
