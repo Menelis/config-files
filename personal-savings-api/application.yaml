@@ -15,7 +15,7 @@ spring:
       cache-null-values: false
       use-key-prefix: false
   datasource:
-    url: jdbc:sqlserver://localhost;encrypt=true;trustServerCertificate=true;databaseName=personal_savings_seed_data_test
+    url: jdbc:sqlserver://localhost;encrypt=true;trustServerCertificate=true;databaseName=personal_savings_dev
     username: personal_saving_api_user
     password: personal_saving_api_user
   jpa:
